@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Của Tôi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* 1. THIẾT LẬP CHUNG CHO TOÀN TRANG */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Tạo nền tối chuyển màu huyền ảo */
+            background: radial-gradient(circle, #1a1226 0%, #090510 100%);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 2. THIẾT KẾ KHUNG TẤM THIỆP (CARD) */
+        .card {
+            background: rgba(255, 255, 255, 0.03); /* Nền mờ trong suốt kiểu kính */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            backdrop-filter: blur(10px); /* Hiệu ứng làm mờ hậu cảnh */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            position: relative;
+        }
+
+        /* Viền phát sáng mờ xung quanh thiệp */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff758c, #ff7eb3, #70a1ff, #fad0c4);
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        /* 3. THIẾT KẾ CHỮ */
+        /* Tiêu đề chính (Phông chữ bay bướm) */
+        .title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 3rem;
+            color: #ffb6c1; /* Màu hồng pastel */
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5); /* Hiệu ứng phát sáng */
+            margin-bottom: 10px;
+        }
+
+        /* Thời gian */
+        .time {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #fad0c4;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 0;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        /* Nội dung lời nhắn */
+        .content {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Nút bấm tương tác */
+        .btn {
+            background: transparent;
+            border: 1px solid #ffb6c1;
+            color: #ffb6c1;
+            padding: 10px 25px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: #ffb6c1;
+            color: #090510;
+            box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 class="title">Lời Mời Đặc Biệt</h1>
+
+        <div class="time">— 19:00, Ngày 20/10/2026 —</div>
+
+        <p class="content">
+            Cảm ơn bạn đã luôn là một người đồng hành tuyệt vời. 
+            Mình có chuẩn bị một bất ngờ nho nhỏ, bấm nút bên dưới để xem nhé!
+        </p>
+
+        <button class="btn" onclick="sayHello()">Mở Quà</button>
+    </div>
+
+    <script>
+        function sayHello() {
+            alert("Cảm ơn bạn đã nhận lời mời! Hẹn gặp bạn sớm nhé ❤️");
+        }
+    </script>
+
+</body>
+</html>
