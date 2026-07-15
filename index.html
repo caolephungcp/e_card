@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Cấu hình hiển thị khi chia sẻ link qua mạng xã hội (Zalo, Facebook, Messenger...) -->
-    <meta property="og:title" content="Thư Mời Dự Lễ Tốt Nghiệp - Kỹ Sư Kỹ Thuật Máy Tính" />
-    <meta property="og:description" content="Trân trọng kính mời bạn đến chung vui cùng mình trong buổi lễ nhận bằng tốt nghiệp sắp tới." />
-    <meta property="og:image" content="https://caolephungcp.github.io/e_card/ghi.jpg" />
-    <meta property="og:type" content="website" />
-    <title>Thiệp Mời Của Tôi</title>
+    <title>Thư Mời Lễ Tốt Nghiệp</title>
     
+    <meta property="og:title" content="Thư Mời Dự Lễ Tốt Nghiệp - Kỹ Sư Kỹ Thuật Máy Tính" />
+    <meta property="og:description" content="Trân trọng kính mời bạn đến chung vui cùng mình trong ngày nhận bằng cử nhân." />
+    <meta property="og:image" content="https://link-anh-cua-ban.jpg" />
+    <meta property="og:type" content="website" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        /* 1. THIẾT LẬP CHUNG CHO TOÀN TRANG */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,8 +22,8 @@
         }
 
         body {
-            /* Tạo nền tối chuyển màu huyền ảo */
-            background: radial-gradient(circle, #1a1226 0%, #090510 100%);
+            /* Nền ngoài cùng tối đen */
+            background-color: #111; 
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             display: flex;
@@ -32,106 +31,337 @@
             align-items: center;
             min-height: 100vh;
             overflow: hidden;
-        }
-
-        /* 2. THIẾT KẾ KHUNG TẤM THIỆP (CARD) */
-        .card {
-            background: rgba(255, 255, 255, 0.03); /* Nền mờ trong suốt kiểu kính */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 40px 30px;
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-            backdrop-filter: blur(10px); /* Hiệu ứng làm mờ hậu cảnh */
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             position: relative;
         }
 
-        /* Viền phát sáng mờ xung quanh thiệp */
-        .card::before {
+        /* --- 1. HIỆU ỨNG SAO BĂNG NÂNG CẤP --- */
+        .stars {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .shooting-star {
+            position: absolute;
+            top: 5%;
+            left: -10%;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.1), 0 0 0 8px rgba(255,255,255,0.1), 0 0 20px rgba(255,255,255,1);
+            animation: shoot 3s ease-in-out 0.5s forwards;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        /* Đuôi sao băng dài và mờ dần */
+        .shooting-star::after {
             content: '';
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff758c, #ff7eb3, #70a1ff, #fad0c4);
-            border-radius: 18px;
-            z-index: -1;
-            opacity: 0.15;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 100%;
+            width: 250px;
+            height: 2px;
+            background: linear-gradient(to left, rgba(255,255,255,0.8), transparent);
         }
 
-        /* 3. THIẾT KẾ CHỮ */
-        /* Tiêu đề chính (Phông chữ bay bướm) */
-        .title {
-            font-family: 'Alex Brush', cursive;
-            font-size: 3rem;
-            color: #ffb6c1; /* Màu hồng pastel */
-            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5); /* Hiệu ứng phát sáng */
-            margin-bottom: 10px;
+        @keyframes shoot {
+            0% { left: -10%; top: 5%; opacity: 1; transform: rotate(25deg); }
+            100% { left: 120%; top: 60%; opacity: 0; transform: rotate(25deg); }
         }
 
-        /* Thời gian */
-        .time {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            color: #fad0c4;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 0;
-            display: inline-block;
-            margin-bottom: 25px;
-        }
-
-        /* Nội dung lời nhắn */
-        .content {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #e0e0e0;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        /* Nút bấm tương tác */
-        .btn {
-            background: transparent;
-            border: 1px solid #ffb6c1;
-            color: #ffb6c1;
-            padding: 10px 25px;
-            font-size: 0.9rem;
-            border-radius: 20px;
+        /* --- 2. PHONG BÌ PHÁT SÁNG BỒNG BỀNH --- */
+        .envelope-container {
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-align: center;
+            /* Hiệu ứng rơi xuống, sau đó lơ lửng bồng bềnh mãi mãi */
+            animation: dropDown 1.5s cubic-bezier(0.25, 1, 0.5, 1) 1.5s forwards, floatHover 4s ease-in-out infinite 3s;
         }
 
-        .btn:hover {
-            background: #ffb6c1;
-            color: #090510;
-            box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+        @keyframes dropDown { 
+            to { top: 40%; } 
+        }
+        
+        /* Hiệu ứng lơ lửng lên xuống nhẹ nhàng */
+        @keyframes floatHover {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
+        }
+
+        /* Vầng hào quang màu vàng phía sau phong bì */
+        .glow-effect {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 70px;
+            background: #ffdd66; /* Màu vàng sáng */
+            filter: blur(25px); /* Làm nhòe tạo hiệu ứng phát sáng */
+            z-index: 1;
+            border-radius: 50%;
+            animation: glowPulse 2.5s infinite;
+        }
+
+        /* Hiệu ứng hào quang chớp tắt nhẹ */
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .envelope-icon {
+            font-size: 85px;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            /* Tạo bóng đổ tối màu bên dưới để phong bì nổi khối 3D */
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.6));
+            transition: transform 0.3s ease;
+        }
+
+        .envelope-container:hover .envelope-icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .click-hint {
+            font-size: 0.9rem;
+            color: #d4af37; /* Màu vàng đồng sang trọng */
+            letter-spacing: 4px; /* Giãn cách chữ giống ảnh mẫu */
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 15px;
+            position: relative;
+            z-index: 2;
+            animation: blinkText 2s infinite;
+        }
+
+        @keyframes blinkText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* --- 3. THIẾT KẾ THIỆP MỜI SANG TRỌNG --- */
+        .card {
+            background-color: #2b2b2d; /* Màu xám đen giống ảnh mẫu */
+            border-radius: 4px;
+            width: 92%;
+            max-width: 600px;
+            min-height: 80vh; /* Làm thiệp cao hơn */
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 20;
+            overflow: hidden; /* Che đi phần hoa bị tràn ra ngoài */
+            
+            /* Trạng thái ẩn ban đầu */
+            opacity: 0; 
+            transform: scale(0.8) translateY(30px); 
+            pointer-events: none; 
+            transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        .card.open {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Khung viền mỏng màu vàng bên trong thiệp */
+        .card-inner-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- 4. HỌA TIẾT HOA Ở 2 GÓC --- */
+        .floral-corner {
+            position: absolute;
+            width: 250px; /* Độ to của hoa */
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .top-left-flower {
+            top: -20px;
+            left: -20px;
+        }
+
+        .bottom-right-flower {
+            bottom: -20px;
+            right: -20px;
+            transform: rotate(180deg); /* Lật ngược hoa cho góc dưới */
+        }
+
+        /* --- 5. NỘI DUNG CHỮ TRONG THIỆP --- */
+        .content-wrapper {
+            position: relative;
+            z-index: 5; /* Đảm bảo chữ nằm trên hoa */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            margin-top: 50px;
+        }
+
+        .sub-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            color: #b59b54; /* Vàng đồng nhạt */
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #d4af37; /* Vàng đồng sang trọng */
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .time-box {
+            margin: 30px 0;
+        }
+
+        .month {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            color: #d4af37;
+            text-transform: uppercase;
+        }
+
+        .date-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .day, .year {
+            font-size: 0.9rem;
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .date-num {
+            font-size: 3.5rem;
+            color: #d4af37;
+            line-height: 1;
+        }
+
+        .content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cccccc;
+            margin: 20px auto;
+            max-width: 80%;
+            font-style: italic;
+        }
+
+        .btn-close {
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 12px 35px;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 0; /* Nút hình chữ nhật góc cạnh cho hợp phong cách */
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 30px;
+        }
+
+        .btn-close:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 500px) {
+            .title { font-size: 3rem; }
+            .floral-corner { width: 180px; }
+            .content { max-width: 100%; font-size: 1rem; }
+            .date-num { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1 class="title">Lời Mời Đặc Biệt</h1>
+    <div class="stars"></div>
+    <div class="shooting-star"></div>
 
-        <div class="time">— 19:00, Ngày 20/10/2026 —</div>
+    <div class="envelope-container" id="envelope" onclick="openInvitation()">
+        <div class="glow-effect"></div> <div class="envelope-icon">
+            <img src="ghi.jpg" alt="Phong bì" style="width: 120px; height: auto; object-fit: contain;">
+        </div>
+        
+        <div class="click-hint">NHẤN ĐỂ MỞ</div>
+    </div>
 
-        <p class="content">
-            Cảm ơn bạn đã luôn là một người đồng hành tuyệt vời. 
-            Mình có chuẩn bị một bất ngờ nho nhỏ, bấm nút bên dưới để xem nhé!
-        </p>
+    <div class="card" id="invitation-card">
+        <div class="card-inner-border"></div>
 
-        <button class="btn" onclick="sayHello()">Mở Quà</button>
+        <img src="https://i.imgur.com/uT2MvX3.png" class="floral-corner top-left-flower" alt="hoa trang trí">
+        <img src="https://i.imgur.com/uT2MvX3.png" class="floral-corner bottom-right-flower" alt="hoa trang trí">
+
+        <div class="content-wrapper">
+            <div class="sub-title">Lễ Nhận Bằng</div>
+            <h1 class="title">Kỹ Sư Máy Tính</h1>
+
+            <p class="content">
+                Hành trình với những đêm dài thức trắng cùng mạch điện, mỏ hàn và hệ thống tưới ngô tự động cuối cùng đã khép lại một cách trọn vẹn. Thật vinh hạnh được đón tiếp bạn trong ngày vui này.
+            </p>
+
+            <div class="time-box">
+                <div class="month">Tháng Tám</div>
+                <div class="date-row">
+                    <span class="day">Thứ Bảy</span>
+                    <span class="date-num">25</span>
+                    <span class="year">2026</span>
+                </div>
+                <div class="day" style="font-size: 0.8rem; color: #d4af37;">08:30 Sáng</div>
+            </div>
+
+            <div>
+                <button class="btn-close" onclick="alert('Cảm ơn bạn! Hẹn gặp lại vào ngày vui nhé!')">Xác Nhận Tham Dự</button>
+            </div>
+        </div>
     </div>
 
     <script>
-        function sayHello() {
-            alert("Cảm ơn bạn đã nhận lời mời! Hẹn gặp bạn sớm nhé ❤️");
+        function openInvitation() {
+            const envelope = document.getElementById('envelope');
+            const card = document.getElementById('invitation-card');
+
+            envelope.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            envelope.style.opacity = "0";
+            envelope.style.transform = "translateX(-50%) translateY(30px)"; 
+
+            setTimeout(() => {
+                envelope.style.display = "none"; 
+                card.classList.add('open');      
+            }, 400); 
         }
     </script>
 
